@@ -1,11 +1,14 @@
 <script>
-	export let name;
+	import Owl from './Owl.svelte';
+
+	export let winningOwl;
 </script>
 
 <style>
-	h1 {
-		color: purple;
-	}
 </style>
 
-<h1>Hello {name}!</h1>
+<main>
+	{#each [1,2,3] as owl}
+		<Owl />
+	{/each}
+</main>

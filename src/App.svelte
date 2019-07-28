@@ -1,21 +1,20 @@
 <script>
-	import Row from './Row.svelte';
+	import Owl from './Owl.svelte';
 
-	export let winningOwl;
+	let twentyFive = new Array(25);
 </script>
 
 <style>
 	main {
-		margin: 0 auto;
-    width: 80vw;
-    max-width: 60vh;
-    height: 80vw;
-    max-height: 60vh;
+		display: grid;
+    grid-gap: 1px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		max-width: 850px;
 	}
 </style>
 
 <main>
-	{#each [1,2,3,4,5] as row}
-		<Row />
+	{#each twentyFive as owl}
+		<Owl />
 	{/each}
 </main>

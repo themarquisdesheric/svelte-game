@@ -1,6 +1,6 @@
 <style>
   div {
-		background-color: blueviolet;
+		background-color: black;
 		height: calc(100vw / 5);
     max-height: 170px;
     display: flex;
@@ -8,23 +8,29 @@
     align-items: center;
   }
 
-  img { 
-    width: 70%; 
-  }
+  img { width: 70%; }
 </style>
 
 <script>
-  import owl from '../public/favicon.png';
+  import owlImage from '../public/favicon.png';
 
-  let owlVisible = false;
+  let reveal = false;
+  const setVisible = () => {
+    reveal = true;
 
-  const toggleVisible = () => {
-    owlVisible = !owlVisible;
+    if (owl.winningOwl) {
+      alert('winning owl!!!');
+    }
   };
+
+  export let owl;
 </script>
 
-<div on:click={toggleVisible}>
-  {#if owlVisible}
-    <img src={owl} alt="owl" />
+<div 
+  on:click={setVisible} 
+  style="background-color: {reveal ? owl.color : ''}"
+>
+  {#if reveal && owl.color !== 'transparent'}
+    <img src={owlImage} alt="owl" />
   {/if}
 </div>

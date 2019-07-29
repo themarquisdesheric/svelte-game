@@ -1,6 +1,6 @@
 <style>
   div {
-		background-color: black;
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
 		height: calc(100vw / 5);
     max-height: 170px;
     display: flex;
@@ -12,7 +12,7 @@
 </style>
 
 <script>
-  import owlImage from '../public/favicon.png';
+  import owlImage from '../public/owl.png';
 
   let reveal = false;
   const setVisible = () => {
@@ -28,7 +28,7 @@
 
 <div 
   on:click={setVisible} 
-  style="background-color: {reveal ? owl.color : ''}"
+  style="background: {reveal ? owl.color : ''}"
 >
   {#if reveal && owl.color !== 'transparent'}
     <img src={owlImage} alt="owl" />

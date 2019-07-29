@@ -44,14 +44,14 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(jpg|png)$/,
-				use: {
-					loader: "url-loader",
-					options: {
-						limit: 25000,
-					},
-				},
-			}
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
+      }
 		]
 	},
 	mode,

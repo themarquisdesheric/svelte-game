@@ -8,6 +8,7 @@
 
 <style>
 	div {
+		background: linear-gradient(to right, #434343, #000000);
 		display: flex;
 		justify-content: center;
 		align-items: center;

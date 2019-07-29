@@ -1,4 +1,4 @@
-export const fisherYatesShuffle = (owls) => {
+const fisherYatesShuffle = (owls) => {
   const shuffled = [...owls];
   // walk the array in reverse order and swap each element with a random one before it
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -11,6 +11,23 @@ export const fisherYatesShuffle = (owls) => {
   return shuffled;
 };
 
+export const getRandomOwls = (numberOfOwls) => {
+  const colors = ['hsl(57, 73%, 65%)', 'hsl(0, 73%, 65%)', 'hsl(199, 73%, 65%)', 'hsl(105, 73%, 65%)', 'hsl(285, 73%, 65%)'];
+  const owls = [];
+
+  for (let i = 0; i < numberOfOwls; i++) {
+    const randomInt = Math.floor(Math.random() * Math.floor(colors.length));
+    const owl = {
+      id: i,
+      color: colors[randomInt]
+    };
+
+    owls[i] = owl;
+  }
+
+  return owls;
+};
+
 export const initializeOwls = (numberOfOwls) => {
   const owls = [];
 
@@ -21,15 +38,20 @@ export const initializeOwls = (numberOfOwls) => {
     };
 
     if (i < 1) {
-      owl.color = 'gold';
+      // yellow
+      owl.color = 'hsl(57, 73%, 65%)';
     } else if (i < 3) {
-      owl.color = 'red';
+      // red
+      owl.color = 'hsl(0, 73%, 65%)';
     } else if (i < 6) {
-      owl.color = 'blue';
+      // blue
+      owl.color = 'hsl(199, 73%, 65%)';
     } else if (i < 9) {
-      owl.color = 'green';
+      // green
+      owl.color = 'hsl(105, 73%, 65%)';
     } else if (i < 12) {
-      owl.color = 'purple';
+      // purple
+      owl.color = 'hsl(285, 73%, 65%)';
     } else {
       owl.color = 'transparent';
     }

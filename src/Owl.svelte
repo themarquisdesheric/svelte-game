@@ -1,5 +1,6 @@
 <style>
   div {
+    position: relative;
     background: linear-gradient(to right, #FFFFFF, #ECE9E6);
 		height: calc(100vw / 5);
     max-height: 170px;
@@ -8,13 +9,17 @@
     align-items: center;
   }
 
-  img { width: 70%; }
+  img { 
+    position: absolute;
+    bottom: 0;
+    width: 70%; 
+  }
 </style>
 
 <script>
   import owlImage from '../public/owl.png';
 
-  let reveal = false;
+  let reveal = true;
   const setVisible = () => {
     reveal = true;
 

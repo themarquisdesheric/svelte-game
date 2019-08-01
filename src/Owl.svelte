@@ -3,7 +3,7 @@
     position: relative;
     background: linear-gradient(to right, #FFFFFF, #ECE9E6);
 		height: calc(100vw / 5);
-    max-height: 170px;
+    max-height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,6 @@
       alert('winning owl!!!');
     }
   };
-
   export let owl;
 </script>
 

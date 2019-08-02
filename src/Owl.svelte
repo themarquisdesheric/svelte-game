@@ -17,6 +17,8 @@
 </style>
 
 <script>
+  import { fly } from 'svelte/transition';
+  import { getRandomCoordinate, getRandomPolarity } from './utils';
   import owlImage from '../public/owl.png';
 
   let reveal = true;
@@ -27,6 +29,12 @@
       alert('winning owl!!!');
     }
   };
+
+  const transitionOptions = {
+    [getRandomCoordinate()]: getRandomPolarity(75), 
+    duration: 250
+  };
+
   export let owl;
 </script>
 
@@ -35,6 +43,6 @@
   style="background: {reveal ? owl.color : ''}"
 >
   {#if reveal && owl.color !== 'transparent'}
-    <img src={owlImage} alt="owl" />
+    <img transition:fly={transitionOptions} src={owlImage} alt="owl" />
   {/if}
 </div>

@@ -1,9 +1,18 @@
+const getRandomInt = (max = 2) =>
+    Math.floor(Math.random() * max);
+
+export const getRandomCoordinate = () => 
+  getRandomInt() ? 'x' : 'y';
+
+export const getRandomPolarity = (duration) => 
+  getRandomInt() ? duration : -duration;
+
 const fisherYatesShuffle = (owls) => {
   const shuffled = [...owls];
   // walk the array in reverse order and swap each element with a random one before it
   for (let i = shuffled.length - 1; i > 0; i--) {
     // get random index from 0 to i
-    const j = Math.floor(Math.random() * (i + 1)); 
+    const j = getRandomInt(i + 1); 
     // swap elements
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
@@ -16,7 +25,7 @@ export const getRandomOwls = (numberOfOwls) => {
   const owls = [];
 
   for (let i = 0; i < numberOfOwls; i++) {
-    const randomInt = Math.floor(Math.random() * Math.floor(colors.length));
+    const randomInt = getRandomInt(colors.length);
     const owl = {
       id: i,
       color: colors[randomInt]

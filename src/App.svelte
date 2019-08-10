@@ -1,7 +1,7 @@
 <script>
 	import { initializeOwls, getRandomOwls } from './utils';
 	import Owl from './Owl.svelte';
-	
+
 	const numberOfOwls = 25;
 	let owls = [];
 	let interval;
@@ -14,7 +14,8 @@
 		setInterval(
 			() => {
 				shuffleOwls(numberOfOwls);
-			}, 400
+			}, 
+			400
 		);
 
 	const toggleAnimation = () => {
@@ -26,8 +27,9 @@
 		}
 	};
 
-	shuffleOwls(numberOfOwls);	
-	interval = animateOwls();
+	// shuffleOwls();	
+	// interval = animateOwls();
+	owls = initializeOwls(numberOfOwls);
 </script>
 
 <style>
@@ -57,16 +59,12 @@
 	</main>
 	<div>
 		{#if !interval}
-		<button on:click={shuffleOwls}>
-			Shuffle owls
-		</button>
+			<button on:click={shuffleOwls}>
+				Shuffle owls
+			</button>
 		{/if}
 		<button on:click={toggleAnimation}>
-			{#if interval}
-				Pause
-			{:else}
-				Play 
-			{/if}
+			{interval ? 'Pause' : 'Play'}
 		</button>
 	</div>
 </div>

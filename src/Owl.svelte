@@ -21,12 +21,16 @@
   import { getRandomCoordinate, getRandomPolarity } from './utils';
   import owlImage from '../public/owl.png';
 
-  let reveal = true;
+  let reveal = false;
   const setVisible = () => {
     reveal = true;
 
     if (owl.winningOwl) {
-      alert('winning owl!!!');
+      const losingOwls = document.querySelectorAll('.losing-owl');
+      
+      losingOwls.forEach(owlNode => {
+        owlNode.style.visibility = 'hidden';
+      });
     }
   };
 
@@ -40,6 +44,7 @@
 
 <div 
   on:click={setVisible} 
+  class:losing-owl="{!owl.winningOwl}"
   style="background: {reveal ? owl.color : ''}"
 >
   {#if reveal && owl.color !== 'transparent'}
